@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Border Radius Toy</title>
+		<link type="text/css" href="css/ui-darkness/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> 
+		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script> 
+	<script type="text/javascript">
+	$(function() {
+		$("#topLeft").slider({
+			value:$("#tl").text(),min:0,max:100,slide: function(event, ui) {
+				$("#tl").text(ui.value);
+				$("#example").css({"-webkit-border-top-left-radius":ui.value,
+							    "-moz-border-radius-topleft":ui.value,
+							    "border-top-left-radius":ui.value});		
+		}});
+		$("#topRight").slider({
+			value:$("#tr").text(),min:0,max:100,slide: function(event, ui) {
+				$("#tr").text(ui.value);
+				$("#example").css({"-webkit-border-top-right-radius":ui.value,
+							    "-moz-border-radius-topright":ui.value,
+							    "border-top-right-radius":ui.value});
+		}});
+		$("#bottomLeft").slider({
+			value:$("#bl").text(),min:0,max:100,slide: function(event, ui) {
+				$("#bl").text(ui.value);
+				$("#example").css({"-webkit-border-bottom-left-radius":ui.value,
+							    "-moz-border-radius-bottomleft":ui.value,
+							    "border-bottom-left-radius":ui.value});
+		}});
+		$("#bottomRight").slider({
+			value:$("#br").text(),min:0,max:100,slide: function(event, ui) {
+				$("#br").text(ui.value);
+				$("#example").css({"-webkit-border-bottom-right-radius":ui.value,
+							    "-moz-border-radius-bottomright":ui.value,
+							    "border-bottom-right-radius":ui.value});
+		}});
+	});
+	</script>
+	<style>
+	#controls {width:500px;margin:1em auto}
+	#example {border:2px solid #000;background:#888;height:300px;width:300px;margin:0 auto;}
+	</style>
+</head>
+<body>
+<h1>Border Radius Toy</h1>
+<div id="controls">
+	<p><h2>Top Left: <span id="tl">0</span>px</h2><div id="topLeft"></div></p>
+	<p><h2>Top Right: <span id="tr">0</span>px</h2><div id="topRight"></div></p>
+	<p><h2>Bottom Left: <span id="bl">0</span>px</h2><div id="bottomLeft"></div></p>
+	<p><h2>Bottom Right: <span id="br">0</span>px</h2><div id="bottomRight"></div></p>
+</div>
+<div id="debug"></div>
+	<div id="example">
+		
+	</div>
+
+
+</body>
+</html>
