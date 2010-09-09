@@ -7,51 +7,96 @@
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> 
 		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script> 
 	<script type="text/javascript">
+	var border = {"topLeft":[1,2],"topRight":[3,4],"bottomLeft":[5,6],"bottomRight":[7,8]};
+	function updateBorder(){
+		var bString = border.topLeft[0] + "px " + border.topRight[0] + "px " + border.bottomLeft[0] + "px " 
+				  + border.bottomRight[0] + "px / " + border.topLeft[1] + "px " + border.topRight[1] + "px "
+				  + border.bottomLeft[1] + "px " + border.bottomRight[1] + "px";
+		$("#example").css({"-webkit-border-radius":bString,
+					    "-moz-border-radius":bString,
+				    	    "border-radius":bString});
+		$("#code").html("-webkit-border-radius:"+bString+";<br> -moz-border-radius:"+bString+";<br>border-radius:"+bString+";");
+	}
 	$(function() {
-		$("#topLeft").slider({
-			value:$("#tl").text(),min:0,max:100,slide: function(event, ui) {
-				$("#tl").text(ui.value);
-				$("#example").css({"-webkit-border-top-left-radius":ui.value,
-							    "-moz-border-radius-topleft":ui.value,
-							    "border-top-left-radius":ui.value});		
+
+		$("#xtopLeft").slider({
+			value:$("#xtl").text(),min:0,max:300,slide: function(event, ui) {
+				$("#xtl").text(ui.value);
+				border.topLeft[0] = ui.value;
+				updateBorder();		
 		}});
-		$("#topRight").slider({
-			value:$("#tr").text(),min:0,max:100,slide: function(event, ui) {
-				$("#tr").text(ui.value);
-				$("#example").css({"-webkit-border-top-right-radius":ui.value,
-							    "-moz-border-radius-topright":ui.value,
-							    "border-top-right-radius":ui.value});
+		$("#xtopRight").slider({
+			value:$("#xtr").text(),min:0,max:300,slide: function(event, ui) {
+				$("#xtr").text(ui.value);
+				border.topRight[0] = ui.value;
+				updateBorder();			
 		}});
-		$("#bottomLeft").slider({
-			value:$("#bl").text(),min:0,max:100,slide: function(event, ui) {
-				$("#bl").text(ui.value);
-				$("#example").css({"-webkit-border-bottom-left-radius":ui.value,
-							    "-moz-border-radius-bottomleft":ui.value,
-							    "border-bottom-left-radius":ui.value});
+		$("#xbottomLeft").slider({
+			value:$("#xbl").text(),min:0,max:300,slide: function(event, ui) {
+				$("#xbl").text(ui.value);
+				border.bottomLeft[0] = ui.value;
+				updateBorder();
 		}});
-		$("#bottomRight").slider({
-			value:$("#br").text(),min:0,max:100,slide: function(event, ui) {
-				$("#br").text(ui.value);
-				$("#example").css({"-webkit-border-bottom-right-radius":ui.value,
-							    "-moz-border-radius-bottomright":ui.value,
-							    "border-bottom-right-radius":ui.value});
+		$("#xbottomRight").slider({
+			value:$("#xbr").text(),min:0,max:300,slide: function(event, ui) {
+				$("#xbr").text(ui.value);
+				border.bottomRight[0] = ui.value;
+				updateBorder();
 		}});
+		/*
+		$("#ytopLeft").slider({
+			value:$("#ytl").text(),min:0,max:300,range,slide: function(event, ui) {
+				$("#ytl").text(ui.value);
+		
+		}});
+		$("#ytopRight").slider({
+			value:$("#ytr").text(),min:0,max:300,slide: function(event, ui) {
+				$("#ytr").text(ui.value);
+
+		}});
+		$("#ybottomLeft").slider({
+			value:$("#ybl").text(),min:0,max:300,slide: function(event, ui) {
+				$("#ybl").text(ui.value);
+
+		}});
+		$("#ybottomRight").slider({
+			value:$("#ybr").text(),min:0,max:300,slide: function(event, ui) {
+				$("#ybr").text(ui.value);
+		}});
+		*/
 	});
 	</script>
 	<style>
-	#controls {width:500px;margin:1em auto}
+	#controls {width:800px;margin:1em auto;}
+	#output{width:800px;margin:1em auto}
+	#code{border:1px solid #000;background:#aaa;}
+	#x, #y{width:350px;margin:0;padding:0;display:inline}
 	#example {border:2px solid #000;background:#888;height:300px;width:300px;margin:0 auto;}
 	</style>
 </head>
 <body>
 <h1>Border Radius Toy</h1>
-<div id="controls">
-	<p><h2>Top Left: <span id="tl">0</span>px</h2><div id="topLeft"></div></p>
-	<p><h2>Top Right: <span id="tr">0</span>px</h2><div id="topRight"></div></p>
-	<p><h2>Bottom Left: <span id="bl">0</span>px</h2><div id="bottomLeft"></div></p>
-	<p><h2>Bottom Right: <span id="br">0</span>px</h2><div id="bottomRight"></div></p>
+<div id="output">
+	<h2>CSS:</h2>	
+	<div id="code"></div>
 </div>
-<div id="debug"></div>
+<div id="controls">
+	<div id="x">
+		<h2>X</h2>
+		<p><h2>Top Left: <span id="xtl">0</span>px</h2><div id="xtopLeft"></div></p>
+		<p><h2>Top Right: <span id="xtr">0</span>px</h2><div id="xtopRight"></div></p>
+		<p><h2>Bottom Left: <span id="xbl">0</span>px</h2><div id="xbottomLeft"></div></p>
+		<p><h2>Bottom Right: <span id="xbr">0</span>px</h2><div id="xbottomRight"></div></p>
+	</div>
+	<div id="y">
+		<h2>Y</h2>
+		<p><h2>Top Left: <span id="ytl">0</span>px</h2><div id="ytopLeft"></div></p>
+		<p><h2>Top Right: <span id="ytr">0</span>px</h2><div id="ytopRight"></div></p>
+		<p><h2>Bottom Left: <span id="ybl">0</span>px</h2><div id="ybottomLeft"></div></p>
+		<p><h2>Bottom Right: <span id="ybr">0</span>px</h2><div id="ybottomRight"></div></p>
+	</div>
+</div>
+
 	<div id="example">
 		
 	</div>
