@@ -12,13 +12,10 @@
 		var bString = border.topLeft[0] + "px " + border.topRight[0] + "px " + border.bottomLeft[0] + "px " 
 				  + border.bottomRight[0] + "px / " + border.topLeft[1] + "px " + border.topRight[1] + "px "
 				  + border.bottomLeft[1] + "px " + border.bottomRight[1] + "px";
-		$("#example").css({"-webkit-border-radius":bString,
-					    "-moz-border-radius":bString,
-				    	    "border-radius":bString});
+		$("#example").css({"-webkit-border-radius":bString,"-moz-border-radius":bString,"border-radius":bString});
 		$("#code").html("-webkit-border-radius:"+bString+";<br> -moz-border-radius:"+bString+";<br>border-radius:"+bString+";");
 	}
 	$(function() {
-
 		$("#xtopLeft").slider({
 			value:$("#xtl").text(),min:0,max:300,slide: function(event, ui) {
 				$("#xtl").text(ui.value);
@@ -70,40 +67,36 @@
 	});
 	</script>
 	<style>
-	#controls {width:800px;margin:1em auto;}
-	#output{width:800px;margin:1em auto}
-	#code{border:1px solid #000;background:#aaa;}
-	#x, #y{width:350px;margin:0;padding:0;display:inline}
-	#example {border:2px solid #000;background:#888;height:300px;width:300px;margin:0 auto;}
+		#code{border:1px solid #000;background:#aaa;padding:5px;}
+		#x,#y{width:350px;float:left;margin:0;padding:0;}
+		#y{margin:0 0 0 50px}
+		#example{border:2px solid #000;background:#888;height:300px;width:300px;margin:0 auto;}
+		#controls,#output{width:800px;margin:1em auto; padding:10px; clear:both;overflow:auto}
 	</style>
 </head>
 <body>
 <h1>Border Radius Toy</h1>
-<div id="output">
-	<h2>CSS:</h2>	
-	<div id="code"></div>
-</div>
+<p>This toy shapes a 300px square by setting all 8 border-radius parameters</p>
 <div id="controls">
 	<div id="x">
 		<h2>X</h2>
-		<p><h2>Top Left: <span id="xtl">0</span>px</h2><div id="xtopLeft"></div></p>
-		<p><h2>Top Right: <span id="xtr">0</span>px</h2><div id="xtopRight"></div></p>
-		<p><h2>Bottom Left: <span id="xbl">0</span>px</h2><div id="xbottomLeft"></div></p>
-		<p><h2>Bottom Right: <span id="xbr">0</span>px</h2><div id="xbottomRight"></div></p>
+		<p><h3>Top Left: <span id="xtl">0</span>px</h3><div id="xtopLeft"></div></p>
+		<p><h3>Top Right: <span id="xtr">0</span>px</h3><div id="xtopRight"></div></p>
+		<p><h3>Bottom Left: <span id="xbl">0</span>px</h3><div id="xbottomLeft"></div></p>
+		<p><h3>Bottom Right: <span id="xbr">0</span>px</h3><div id="xbottomRight"></div></p>
 	</div>
 	<div id="y">
 		<h2>Y</h2>
-		<p><h2>Top Left: <span id="ytl">0</span>px</h2><div id="ytopLeft"></div></p>
-		<p><h2>Top Right: <span id="ytr">0</span>px</h2><div id="ytopRight"></div></p>
-		<p><h2>Bottom Left: <span id="ybl">0</span>px</h2><div id="ybottomLeft"></div></p>
-		<p><h2>Bottom Right: <span id="ybr">0</span>px</h2><div id="ybottomRight"></div></p>
+		<p><h3>Top Left: <span id="ytl">0</span>px</h3><div id="ytopLeft"></div></p>
+		<p><h3>Top Right: <span id="ytr">0</span>px</h3><div id="ytopRight"></div></p>
+		<p><h3>Bottom Left: <span id="ybl">0</span>px</h3><div id="ybottomLeft"></div></p>
+		<p><h3>Bottom Right: <span id="ybr">0</span>px</h3><div id="ybottomRight"></div></p>
 	</div>
 </div>
-
-	<div id="example">
-		
-	</div>
-
-
+<div id="example"></div>
+<div id="output">
+	<h2>CSS:</h2>	
+	<div id="code">&nbsp;<br/>&nbsp;<br/>&nbsp;<br/></div>
+</div>
 </body>
 </html>
