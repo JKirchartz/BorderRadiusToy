@@ -1,1 +1,1 @@
-This is a little toy using jQuery UI sliders to adjust css3 border-radius values. It currently only works in Webkit & Gecko based browsers. 
+This is a little toy using jQuery UI sliders to adjust css3 border-radius values. It currently only works in Modern browsers. 
