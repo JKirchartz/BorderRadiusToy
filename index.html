@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 <title>Border Radius Toy</title>
 		<link type="text/css" href="css/ui-darkness/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script> 
 		<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script> 
 	<script type="text/javascript">
+	//set default borders
 	var border = {"topLeft":[0,0],"topRight":[0,0],"bottomLeft":[0,0],"bottomRight":[0,0]};
 	function updateBorder(){
+		// generate CSS string
 		var bString = border.topLeft[0] + "px " + border.topRight[0] + "px " + border.bottomLeft[0] + "px " 
 				  + border.bottomRight[0] + "px / " + border.topLeft[1] + "px " + border.topRight[1] + "px "
 				  + border.bottomLeft[1] + "px " + border.bottomRight[1] + "px";
+		// apply styling
 		$("#example").css({"-webkit-border-radius":bString,"-moz-border-radius":bString,"border-radius":bString});
+		// output css
 		$("#code").html("-webkit-border-radius:"+bString+";<br> -moz-border-radius:"+bString+";<br>border-radius:"+bString+";");
 	}
+	// use jQuery-UI sliders to update css
 	$(function() {
 		$("#xtopLeft").slider({
 			value:$("#xtl").text(),min:0,max:300,slide: function(event, ui) {
@@ -67,7 +72,8 @@
 	});
 	</script>
 	<style>
-		header {width:960px;margin:0 auto;display:block}
+		body {font:100%/1.5 sans-serif}
+		header {width:960px;margin:0 auto;display:block;padding-bottom:0}
 		#code{border:1px solid #000;background:#aaa;padding:5px;}
 		#x,#y{width:350px;float:left;margin:0;padding:0;}
 		#y{margin:0 0 0 50px}
@@ -101,7 +107,7 @@
 <body>
 <header>
 <h1>Border Radius Toy</h1>
-<p>This toy shapes a 300px square by setting all 8 border-radius parameters.</p>
+<p>This toy shapes a 300px square by setting all 8 border-radius parameters. It's all HTML5/CSS3 JS & JQuery.</p>
 </header>
 <div id="controls">
 	<div id="x">
